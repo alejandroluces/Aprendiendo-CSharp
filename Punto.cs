@@ -53,7 +53,7 @@ namespace ConceptosPOO
 
 */
 
-
+/*
 
 using System;
 using System.Collections.Generic;
@@ -93,4 +93,7 @@ namespace ConceptosPOO
     }
     
 }
+
+*/
+
 

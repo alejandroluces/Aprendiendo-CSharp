@@ -370,40 +370,40 @@ void Some(Func<int, int, int> fn, int number)
 // Ejemplo:
 
 
- /*
+/*
 
 var names = new List<string>()
 {
-    "Alejandro",
-    "Juan",
-    "Pedro",
-    "Jose",
-    "Daniel",
-    "Franco",
-    
+   "Alejandro",
+   "Juan",
+   "Pedro",
+   "Jose",
+   "Daniel",
+   "Franco",
+
 };
 
 var namesResult = from n in names
-                    where n.Length > 4 && n.Length < 7
-                    orderby n descending
-                    select n;
+                   where n.Length > 4 && n.Length < 7
+                   orderby n descending
+                   select n;
 
 var namesResult2 = names.Where(n => n.Length > 4 && n.Length < 7)
-                        .OrderByDescending(n => n)
-                        .Select(n => n);
+                       .OrderByDescending(n => n)
+                       .Select(n => n);
 
- // Resultado de la consulta LINQ . NamesResult y NamesResult2 son iguales
+// Resultado de la consulta LINQ . NamesResult y NamesResult2 son iguales
 
-     
+
 
 foreach (var item in namesResult)
 {
-    Console.WriteLine("Resultado 1 :"+item);
+   Console.WriteLine("Resultado 1 :"+item);
 }
 
 foreach (var item in namesResult2)
 {
-    Console.WriteLine("Resultado 2 :"+item);
+   Console.WriteLine("Resultado 2 :"+item);
 }
 
 */
@@ -1157,6 +1157,8 @@ namespace ConceptosPOO
 }
 */
 
+/*
+
 using System;
 namespace ConceptosPOO
 {
@@ -1175,5 +1177,182 @@ namespace ConceptosPOO
             Console.WriteLine($"La distancia entre los puntos es {distancia}");
             Console.WriteLine($"Numero de objetos creados: {Punto.ContadorDeObjetos()}");
         }
+    }
+}
+*/
+
+
+
+
+// Uso del Array
+
+/*
+using System.Runtime.InteropServices.Marshalling;
+
+namespace UsoArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Primer Ejemplo de uso de array
+
+            Empleados[] arrayEmpleados = new Empleados[2];
+
+            arrayEmpleados[0] = new Empleados("Alejandro", 37);
+            arrayEmpleados[1] = new Empleados("Juan", 36);
+
+            foreach (Empleados item in arrayEmpleados)
+            {
+                Console.WriteLine(item.nombre + " " + item.edad);
+            }
+
+            // Segundo ejemplo
+
+            Jugadores[] arrayJugadores = new Jugadores[3];
+
+            arrayJugadores[0] = new Jugadores("Messi", "Barcelona");
+            arrayJugadores[1] = new Jugadores("Cristiano", "Juventus");
+            arrayJugadores[2] = new Jugadores("Neymar", "PSG");
+
+            foreach (Jugadores item in arrayJugadores)
+            {
+                Console.WriteLine(item.nombre + " " + item.team);
+            }
+
+            // Array de tipo  anonimo
+
+            var personas = new[]
+            {
+                new {nombre = "Alejandro", edad = 37, sexo =  "Masculino"},
+                new {nombre = "Juan", edad = 36, sexo =  "Masculino"},
+                new {nombre = "Maria", edad = 35, sexo =  "Femenino"},
+                new {nombre = "Jose", edad = 34, sexo =  "Masculino"},
+                new {nombre = "Ana", edad = 33, sexo =  "Femenino"}
+            };
+
+            foreach (var item in personas)
+            {
+                Console.WriteLine(item);
+            }
+         
+
+        }
+
+        //Classe del primer ejemplo
+        class Empleados
+        {
+            public Empleados(string nombre, int edad)
+            {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+      
+            public string nombre;
+            public int edad;
+
+    
+        }
+
+        //Classe del segundo ejemplo
+
+        class Jugadores
+        {
+            public Jugadores(string nombre, string team)
+            {
+                this.nombre = nombre;
+                this.team = team;
+            }
+
+            public string nombre;
+            public string team;
+        }
+    }
+}
+
+*/
+
+
+
+// USO DEL BUCLE FOR
+
+
+
+namespace UsoArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Primer Ejemplo de uso de array
+
+            Empleados[] arrayEmpleados = new Empleados[3];
+
+            arrayEmpleados[0] = new Empleados("Alejandro", 37);
+            arrayEmpleados[1] = new Empleados("Juan", 36);
+            arrayEmpleados[2] = new Empleados("Maria", 35);
+
+        
+
+
+            // Array de tipo  anonimo
+
+            var personas = new[]
+            {
+                new {nombre = "Alejandro", edad = 37, sexo =  "Masculino"},
+                new {nombre = "Juan", edad = 36, sexo =  "Masculino"},
+                new {nombre = "Maria", edad = 35, sexo =  "Femenino"},
+                new {nombre = "Jose", edad = 34, sexo =  "Masculino"},
+                new {nombre = "Ana", edad = 33, sexo =  "Femenino"}
+            };   
+
+
+
+            // EJEMPLO BUCLE FOR
+
+            var valores = new[]{13,45,78,12,55,33,4,90};
+
+            // for (int i = 0; i < arrayEmpleados.Length; i++)
+            // {
+            //     Console.WriteLine(arrayEmpleados[i].getInfo());
+            // }
+
+            // foreach (var item in arrayEmpleados)
+            // {
+                
+            //     Console.WriteLine(item.getInfo());
+            // }
+
+            foreach (var item in personas)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+        }
+
+        //Classe del primer ejemplo
+        class Empleados
+        {
+            public Empleados(string nombre, int edad)
+            {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+      
+            private string nombre;
+            private int edad;
+
+             public String getInfo()
+            {
+                 return "Nombre: " + nombre + " Edad: " + edad;
+            }
+
+
+    
+        }
+       
+        
     }
 }
