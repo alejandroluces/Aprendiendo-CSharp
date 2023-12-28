@@ -1273,10 +1273,10 @@ namespace UsoArrays
 */
 
 
-
+// Arrays V Arrays por parámetros. Vídeo 40
 // USO DEL BUCLE FOR
 
-
+/*
 
 namespace UsoArrays
 {
@@ -1354,5 +1354,92 @@ namespace UsoArrays
         }
        
         
+    }
+}
+
+*/
+
+
+
+// Curso C#. Arrays V Arrays por parámetros. Vídeo 40
+/*
+namespace UsoArrays
+{
+    class Program
+    {
+            static void Main(string[] args)
+            {
+            
+                int [] numeros =  new int[4];
+
+                numeros[0] = 5;
+                numeros[1] = 10;
+                numeros[2] = 15;
+                numeros[3] = 20;
+
+                ProcesaDatos(numeros);
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine(item);
+                }
+                 
+            }
+
+            static void ProcesaDatos(int[] datos)
+            {
+
+               for (int i = 0; i < datos.Length; i++)
+               {
+                   datos[i] += 10;
+
+               }
+ 
+            }
+    }
+}
+*/
+
+
+namespace UsoArrays
+{
+    class Program
+    {
+            static void Main(string[] args)
+            {
+            
+                
+                int[] datos = LeerDatos();
+
+                
+                Console.WriteLine("Los datos introducidos son: ");
+                foreach (var item in datos)
+                {
+                    Console.WriteLine(item);
+                }
+                
+                
+                 
+            }
+
+            static int[] LeerDatos()
+            {
+                Console.WriteLine("Cuantos datos quieres introducir?");
+                string respuesta = Console.ReadLine();
+                int numDatos = Int32.Parse(respuesta);
+
+                int[] datos = new int[numDatos];
+
+                for (int i = 0; i < datos.Length; i++)
+                {
+                    Console.WriteLine("Introduce el dato #" + (i + 1));
+                    respuesta = Console.ReadLine();
+                    datos[i] = Int32.Parse(respuesta);
+                }
+
+                return datos;
+
+            }
+         
     }
 }
