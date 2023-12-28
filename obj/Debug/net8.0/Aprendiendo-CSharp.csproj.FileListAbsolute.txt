@@ -1,0 +1,14 @@
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\bin\Debug\net8.0\Aprendiendo-CSharp.exe
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\bin\Debug\net8.0\Aprendiendo-CSharp.deps.json
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\bin\Debug\net8.0\Aprendiendo-CSharp.runtimeconfig.json
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\bin\Debug\net8.0\Aprendiendo-CSharp.dll
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\bin\Debug\net8.0\Aprendiendo-CSharp.pdb
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.AssemblyInfoInputs.cache
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.AssemblyInfo.cs
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.dll
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\refint\Aprendiendo-CSharp.dll
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.pdb
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.genruntimeconfig.cache
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\ref\Aprendiendo-CSharp.dll
