@@ -12,3 +12,4 @@ C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\refint\Aprendiendo-C
 C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.pdb
 C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.genruntimeconfig.cache
 C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\ref\Aprendiendo-CSharp.dll
+C:\Users\aluces\Desktop\Aprendiendo-CSharp\obj\Debug\net8.0\Aprendiendo-CSharp.sourcelink.json
