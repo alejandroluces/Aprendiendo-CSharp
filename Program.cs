@@ -1401,6 +1401,8 @@ namespace UsoArrays
 */
 
 
+/*
+
 namespace UsoArrays
 {
     class Program
@@ -1442,4 +1444,114 @@ namespace UsoArrays
             }
          
     }
+}
+
+*/
+
+
+
+using System;
+
+namespace Herencia
+{
+            class Program
+            {
+                    static void Main(string[] args)
+                    {
+                    
+                        Caballo Babieca = new Caballo("Babieca");
+                        Humano Alejandro = new Humano("Alejandro");
+                        Gorila Copito = new Gorila("Copito");
+
+                        Mamiferos[] almaceAnimales = new Mamiferos[4];
+
+                        Caballo[] almacenDeCaballos = new Caballo[4];
+
+                        almaceAnimales[0] = Babieca;
+                        almaceAnimales[1] = new Caballo("Pirri");
+                        almaceAnimales[2] = new Caballo("Bucéfalo");
+                        almaceAnimales[3] =  Alejandro;          
+
+                            almaceAnimales[1].getNombre();
+                            almaceAnimales[3].getNombre();        
+
+                        /*
+                        Alejandro.getNombre();
+                        Babieca.getNombre();
+                        Copito.getNombre();
+                        */
+        
+                        
+                    }
+            }       
+            class Mamiferos
+            {
+                // Constructor
+
+                public Mamiferos(String nombre)
+                {
+                    nombreSerVivo = nombre;
+
+                    
+                }
+                
+                public void respirar()
+                {
+                    Console.WriteLine("Soy capaz de respirar");
+    
+                }
+
+                public void cuidarCrias()
+                {
+                    Console.WriteLine("Cuido de mis crias hasta que se valgan por si solas");
+                }
+
+                public void getNombre()
+                {
+                    Console.WriteLine("El nombre del ser vivo es: " + nombreSerVivo);
+                }
+
+                private String nombreSerVivo;
+            }
+
+            class Caballo : Mamiferos
+            {
+                public Caballo(String nombreCaballo) : base(nombreCaballo)
+                {
+
+                }
+                public void galopar()
+                {
+                    Console.WriteLine("Soy capaz de galopar");
+                }
+
+             }
+
+            class Humano : Mamiferos
+            {
+
+                public Humano(String nombreHumano) : base(nombreHumano)
+                {
+
+                }
+                public void pensar()
+                {
+                    Console.WriteLine("Soy capaz de pensar ¿?");
+                }
+
+            }
+
+            class Gorila : Mamiferos
+            {
+                public Gorila(String nombreGorila) : base(nombreGorila)
+                {
+
+                }
+                public void trepar()
+                {
+                    Console.WriteLine("Soy capaz de trepar");
+                }
+
+            }
+    
 }
