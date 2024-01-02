@@ -1472,8 +1472,12 @@ namespace Herencia
                         almaceAnimales[2] = new Caballo("Bucéfalo");
                         almaceAnimales[3] =  Alejandro;          
 
-                            almaceAnimales[1].getNombre();
-                            almaceAnimales[3].getNombre();        
+                        for (int i = 0; i < almaceAnimales.Length; i++)
+                        {
+                            almaceAnimales[i].getNombre();
+                        }
+
+                        
 
                         /*
                         Alejandro.getNombre();
@@ -1500,6 +1504,12 @@ namespace Herencia
                     Console.WriteLine("Soy capaz de respirar");
     
                 }
+
+                 public virtual void pensar()
+                {
+                    Console.WriteLine("Pensamiento básico instintivo");
+                }
+
 
                 public void cuidarCrias()
                 {
@@ -1546,6 +1556,11 @@ namespace Herencia
                 public Gorila(String nombreGorila) : base(nombreGorila)
                 {
 
+                }
+
+                   public void pensar()
+                {
+                    Console.WriteLine("Pensamiento instintivo avanzado");
                 }
                 public void trepar()
                 {
