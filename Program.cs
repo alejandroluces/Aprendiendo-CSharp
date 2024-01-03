@@ -1449,7 +1449,7 @@ namespace UsoArrays
 */
 
 
-
+/*
 using System;
 
 namespace Herencia
@@ -1470,7 +1470,9 @@ namespace Herencia
                         almaceAnimales[0] = Babieca;
                         almaceAnimales[1] = new Caballo("Pirri");
                         almaceAnimales[2] = new Caballo("Bucéfalo");
-                        almaceAnimales[3] =  Alejandro;          
+                        almaceAnimales[3] =  Alejandro;   
+
+                               
 
                         for (int i = 0; i < almaceAnimales.Length; i++)
                         {
@@ -1479,11 +1481,11 @@ namespace Herencia
 
                         
 
-                        /*
+                        
                         Alejandro.getNombre();
                         Babieca.getNombre();
                         Copito.getNombre();
-                        */
+                        
         
                         
                     }
@@ -1570,3 +1572,222 @@ namespace Herencia
             }
     
 }
+
+*/
+
+
+//Uso  del metodo de acceso privado mediante la palabra reservada public
+
+
+/*
+using System;
+
+namespace Herencia
+{
+
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            // Acceso permitido
+
+            Miclass miObjeto = new Miclass();
+            miObjeto.MetodoPublico();
+            miObjeto.NombrePublico2();
+        }
+    }
+
+    // MEtodo de acceso privado
+
+    
+
+    public class Miclass
+    {
+        public Miclass()
+        {
+            // Constructor principal
+        }
+
+        public void MetodoPublico()
+        {
+            Console.WriteLine("Método público llamado.");
+        }
+
+        private void NombrePublico()
+        {
+            Console.WriteLine("ALEJANDRO2");
+        }
+        // control de acceso a NombrePublico
+        public void NombrePublico2()
+        {
+            NombrePublico();
+        }
+        
+    }
+
+    
+
+
+}
+*/
+
+
+
+
+
+// Uso del private en un metodo de acceso privado
+
+
+/*
+using System;
+
+namespace Herencia
+{
+
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+           
+            Miclass miObjeto = new Miclass();
+            miObjeto.MetodoAccesible(); // Acceso permitido a través de un método público
+            //miObjeto.MetodoPrivado();//Acceso denegado fuera de la clase.
+            
+        }
+    }
+
+    // MEtodo de acceso privado
+
+    public class Miclass
+    {
+        private string nombrePrivado;
+
+        private void MetodoPrivado()
+        {
+            Console.WriteLine("Método privado llamado." + nombrePrivado);
+        }
+
+        public void MetodoAccesible()
+        {
+            nombrePrivado = "Alejandro"; // Acceso permitido dentro de la clase
+            MetodoPrivado(); // Acceso permitido dentro de la clase
+            
+        }
+        
+    }
+
+}
+
+*/
+
+
+
+
+/*
+
+Creación de tres clases
+•	Avión 
+•	Vehículo	
+•	Coche
+
+Métodos comunes a las tres clases
+•	Arrancar motor
+•	Parar motor
+
+Método virtual
+
+• Conducir
+
+*/
+
+
+
+using System;
+
+namespace EjercicioPractico
+{
+
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            Console.WriteLine("Probando Avion...");
+            Avion miAvion = new Avion();
+            miAvion.ArrancarMotor("tracatrafftracatrafff");
+            miAvion.Despegar();
+            miAvion.Conducir();
+            miAvion.Aterrizar();
+            miAvion.PararMotor("Polofffffssshh");
+
+            Console.WriteLine("Probando Coche...");
+            Coche miCoche = new Coche();
+            miCoche.ArrancarMotor("runrunrurnnnn");
+            miCoche.Acelerar();
+            miCoche.Conducir();
+            miCoche.Frena();
+            miCoche.PararMotor("buung");
+            
+        }
+    }
+
+    // MEtodo de acceso privado
+
+    class Vehiculo
+    {
+        public void ArrancarMotor(String sonidoAlArrancar)
+        {
+            Console.WriteLine("Arrancando motor..." + sonidoAlArrancar);
+        }
+       
+
+        public void PararMotor( String sonidoAlParar )
+        {
+            Console.WriteLine("Parando motor..." + sonidoAlParar);
+        }
+
+        public virtual void Conducir()
+        {
+            Console.WriteLine("Metodo generico para el metodo conducir...!!");
+        }
+        
+    }
+
+    class Avion : Vehiculo
+    {
+        public  void Aterrizar()
+        {
+            Console.WriteLine("Aterrizando...");
+        }
+        public  void Despegar()
+        {
+            Console.WriteLine("Dezpegando...");
+        }
+
+        public override void Conducir()
+        {
+            Console.WriteLine("Conduciendo mirando al cielo !!");
+        }
+    }
+
+    class Coche : Vehiculo
+    {
+        public  void Acelerar()
+        {
+            Console.WriteLine("Acelerando...");
+        }
+         public  void Frena()
+        {
+            Console.WriteLine("Frenando...");
+        }
+
+        public override void Conducir()
+        {
+            Console.WriteLine("Conduciendo mirando al frente de la carretera !!");
+        }
+    }
+
+}
+
+
+
+
