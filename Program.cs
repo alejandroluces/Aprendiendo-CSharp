@@ -1702,6 +1702,11 @@ Método virtual
 
 
 
+
+//SOLUCION EJERCICIO PRÁCTICO________________________________________________
+
+/*
+
 using System;
 
 namespace EjercicioPractico
@@ -1788,6 +1793,240 @@ namespace EjercicioPractico
 
 }
 
+*/
 
+
+
+
+
+//SOLUCION EJERCICIO PRÁCTICO________________________________________________USO DE INTERFACES.
+
+/*
+
+using System;
+
+namespace Herencia
+{
+            class Program
+            {
+                    static void Main(string[] args)
+                    {
+                    
+                        Caballo Babieca = new Caballo("Babieca");
+                        Humano Alejandro = new Humano("Alejandro");
+                        Gorila Copito = new Gorila("Copito");
+
+                        Mamiferos[] almaceAnimales = new Mamiferos[4];
+
+                        Caballo[] almacenDeCaballos = new Caballo[4];
+
+                        almaceAnimales[0] = Babieca;
+                        almaceAnimales[1] = new Caballo("Pirri");
+                        almaceAnimales[2] = new Caballo("Bucéfalo");
+                        almaceAnimales[3] =  Alejandro; 
+
+
+
+                        Alejandro.getNombre();
+                        Babieca.getNombre();
+                        Copito.getNombre();
+
+                        Ballena ballena = new Ballena("Wally");
+                        ballena.nadar();
+                        Console.WriteLine("Numero de patas de salto de Caballo: " + Babieca.numeroPatas());
+                        Console.WriteLine("Numero de patas de Gorila: " + Copito.numeroPatas());
+
+
+                        // Uso de interfaces
+                        
+
+   
+                    }
+            }   
+
+
+            // INTERFACES
+            // Solo se escribe, La interfaz No modifica nada. 
+            interface IMamiferosTerrestres
+            {
+                int numeroPatas();
+            }
+
+            interface IAnimalesYDeportes
+            {
+                String tipoDeporte();
+
+                Boolean esOlimpico();
+                
+            }
+
+            interface ISaltoConPatas
+            {
+                int numeroPatas();
+            }
+
+
+
+            //AQUI INICIARAN LAS CLASES_______________________________
+
+
+            class Mamiferos
+            {
+                // Constructor
+
+                public Mamiferos(String nombre)
+                {
+                    nombreSerVivo = nombre;
+
+                    
+                }
+                
+                public void respirar()
+                {
+                    Console.WriteLine("Soy capaz de respirar");
+    
+                }
+
+                 public virtual void pensar()
+                {
+                    Console.WriteLine("Pensamiento básico instintivo");
+                }
+
+
+                public void cuidarCrias()
+                {
+                    Console.WriteLine("Cuido de mis crias hasta que se valgan por si solas");
+                }
+
+                public void getNombre()
+                {
+                    Console.WriteLine("El nombre del ser vivo es: " + nombreSerVivo);
+                }
+
+              
+
+                private String nombreSerVivo;
+            }
+
+            class Ballena : Mamiferos
+            {
+                public Ballena(String nombreBallena) : base(nombreBallena)
+                {
+
+                }
+                public void nadar()
+                {
+                    Console.WriteLine("Soy capaz de nadar");
+                }
+
+             }
+
+            class Caballo : Mamiferos, IMamiferosTerrestres, IAnimalesYDeportes,ISaltoConPatas
+            {
+                public Caballo(String nombreCaballo) : base(nombreCaballo)
+                {
+
+                }
+                public void galopar()
+                {
+                    Console.WriteLine("Soy capaz de galopar");
+                }
+
+                int IMamiferosTerrestres.numeroPatas()
+                {
+                    return 4;
+                }
+
+                int ISaltoConPatas.numeroPatas()
+                {
+                    return 2;
+                }
+
+                public String tipoDeporte()
+                {
+                    return "Hipica";
+                }
+
+                public Boolean esOlimpico()
+                {
+                    return true;
+                }
+
+        internal string numeroPatas()
+        {
+            throw new NotImplementedException();
+        }
+    }
+         
+
+            class Humano : Mamiferos
+            {
+                public Humano(String nombreHumano) : base(nombreHumano)
+                {
+
+                }
+                public void pensar()
+                {
+                    Console.WriteLine("Soy capaz de pensar ¿?");
+                }   
+
+            }
+      
+
+            class Gorila : Mamiferos, IMamiferosTerrestres
+            {
+                public Gorila(String nombreGorila) : base(nombreGorila)
+                {
+
+                }
+
+                   public void pensar()
+                {
+                    Console.WriteLine("Pensamiento instintivo avanzado");
+                }
+                public void trepar()
+                {
+                    Console.WriteLine("Soy capaz de trepar");
+                }
+                public int numeroPatas()
+                {
+                    return 2;
+                }
+
+            }
+    
+}
+
+
+
+*/
+
+
+
+using System;
+
+
+namespace Aprendiendo_CSharp
+{
+            
+     class Program
+    {
+        static void Main(string[] args)
+        {
+
+            AvisosTrafico av1 = new AvisosTrafico();
+
+            av1.MostrarAviso();
+
+            AvisosTrafico av2 = new AvisosTrafico("Sancion de trafico", "Leve", "01/01/2024");
+
+
+            av2.getFecha();
+            av2.MostrarAviso();
+            
+
+        }
+    }
+}
 
 
