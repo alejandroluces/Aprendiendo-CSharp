@@ -2039,7 +2039,7 @@ namespace Aprendiendo_CSharp
 
 
 
-
+/*
 
 
 
@@ -2245,4 +2245,419 @@ namespace Herencia
             }
             
     
+}
+
+*/
+
+
+
+/*
+// PropiedadesdeAcceso
+
+using System;
+namespace PropiedadesdeAcceso
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Empleado Alejandro = new Empleado("Alejandro", 37, 2000);
+            
+            Alejandro.SALARIO = -3000;
+            // Alejandro.SALARIO += 580;
+            Console.WriteLine(Alejandro.SALARIO);
+        }
+    }
+
+    class Empleado
+    {
+        public Empleado(string nombre, int edad, double sueldo)
+        {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.sueldo = sueldo;
+        }
+
+        public double Sueldo
+        {
+            get
+            {
+                return sueldo;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("El sueldo no puede ser negativo");
+                    sueldo = 0;
+                }
+                else
+                {
+                    sueldo = value;
+                }
+            }
+        }
+
+        public double SALARIO
+        {
+       
+
+            get
+            {
+                return sueldo;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("El sueldo no puede ser negativo");
+                    sueldo = 0;
+                }
+                else
+                {
+                    sueldo = value;
+                }
+            }
+
+        }
+    
+
+        private string nombre;
+        private int edad;
+        private double sueldo;
+    }
+
+}
+*/
+
+
+
+//USO DEL STRUCT____________________________________
+/*
+using System;
+namespace Structs_y_Enum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Empleado empleado1 = new Empleado(1200, 250);
+
+            empleado1.cambiarSueldo(empleado1, 1000);
+
+            Console.WriteLine(empleado1.ToString());
+            
+            
+            
+        }
+    }
+
+    public struct Empleado
+    {
+        public Empleado(double sueldo, double comision)
+        {
+            this.sueldo = sueldo;
+            this.comision = comision;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("El sueldo es {0} y la comision es {1}", sueldo, comision);
+        }
+
+        public void cambiarSueldo(Empleado empleado, double incremento)
+        {
+            empleado.sueldo += incremento;
+            empleado.comision += incremento;
+        }
+       
+
+        private double sueldo;
+        private double comision;
+    }
+
+}
+*/
+
+
+
+
+// USO DEL ENUM__________________
+/*
+
+using System;
+namespace Structs_y_Enum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Empleado Alejandro = new Empleado(Bonus.alto, 2000);
+            Console.WriteLine("El salario del empleado es  : " + Alejandro.getSalario());
+
+        }
+    }
+
+    class Empleado
+    {
+        public Empleado(Bonus bonusEmpleado, double salario)
+        {
+            bonus = (double)bonusEmpleado;
+            this.salario = salario;
+        }
+
+        public double getSalario()
+        {
+            return salario + bonus;
+        }
+        private double salario,bonus;
+
+    }
+    enum Bonus {bajo = 500, medio = 1000, alto = 1500};
+    
+}
+
+
+
+*/
+
+
+
+
+//USO DE DESTRUCTORES_______________________
+
+/*
+using System;
+using System.IO;
+namespace Destructores
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Intanciamos la clese y metodos creados
+            ManejoArchivo archivo = new ManejoArchivo();
+            archivo.mensaje();
+
+        }
+    }
+
+
+    class ManejoArchivo
+    {
+        StreamReader archivo = null;
+
+        int contador = 0;
+
+        string linea;
+
+        public ManejoArchivo()
+        {
+            archivo = new StreamReader(@"C:\Users\aluces\Desktop\Prueba_finnaly.txt");
+
+            while ((linea = archivo.ReadLine()) != null)
+            {
+                Console.WriteLine(linea);
+                contador++;
+            }
+            Console.WriteLine($"El archivo tiene {contador} lineas");
+        }
+
+        public void mensaje()
+        {
+            Console.WriteLine("hay {0} lineas", contador);
+        }
+
+
+        // Destructor
+        ~ManejoArchivo()
+        {
+            archivo.Close();
+            
+        }
+    }
+
+
+    
+    
+}
+*/
+
+
+
+
+
+
+
+
+// uso de GENERICOS_______________________
+
+/*
+using System;
+
+namespace Genericos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            almacenObjetos archivos = new almacenObjetos(4);
+            // archivos.agregaObjeto("Alejandro");
+            // archivos.agregaObjeto("Juan");
+            // archivos.agregaObjeto("Maria");
+            // archivos.agregaObjeto("Jose");
+
+            archivos.agregaObjeto(new Empleado(2000));
+            archivos.agregaObjeto(new Empleado(2500));
+            archivos.agregaObjeto(new Empleado(3000));
+            archivos.agregaObjeto(new Empleado(3500));
+
+            Empleado salarioEmpleado = (Empleado)archivos.getObjeto(3);
+
+            Console.WriteLine(salarioEmpleado.getSueldo());
+            
+            
+
+
+        }
+    }
+    
+    class almacenObjetos
+    {
+        public almacenObjetos(int z)
+        {
+            datosElemento = new object[z];
+        }
+
+        public void agregaObjeto(object obj)
+        {
+            datosElemento[i] = obj;
+            i++;
+        }
+
+        public object getObjeto(int i)
+        {
+            return datosElemento[i];
+        }
+        private Object[] datosElemento;
+
+        private int i = 0;
+
+    }
+
+    class Empleado
+    {
+        public Empleado(double sueldo)
+        {
+            this.sueldo = sueldo;
+        }
+
+        public double getSueldo()
+        {
+            return sueldo;
+        }
+
+        private double sueldo;
+    }
+    
+}
+
+*/
+
+// uso de GENERICOS II_______________________
+
+/*
+using System;
+
+namespace Genericos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            almacenObjetos<DateTime> archivos = new almacenObjetos<DateTime>(4);
+
+            // archivos.agregaObjeto("Alejandro");
+            // archivos.agregaObjeto("Juan");
+            // archivos.agregaObjeto("Maria");
+            // archivos.agregaObjeto("Jose");
+
+            // archivos.agregaObjeto(new Empleado(2000));
+            // archivos.agregaObjeto(new Empleado(2500));
+            // archivos.agregaObjeto(new Empleado(3000));
+            // archivos.agregaObjeto(new Empleado(3500));
+
+            archivos.agregaObjeto(new DateTime());
+            archivos.agregaObjeto(new DateTime());
+            archivos.agregaObjeto(new DateTime());
+            archivos.agregaObjeto(new DateTime());
+
+            DateTime nameEmpleado = archivos.getObjeto(3);
+
+            Console.WriteLine(nameEmpleado);
+
+            
+            
+
+
+        }
+    }
+    
+    class almacenObjetos<T>
+    {
+        public almacenObjetos(int z)
+        {
+            datosElemento = new T[z];
+        }
+
+        public void agregaObjeto( T obj)
+        {
+            datosElemento[i] = obj;
+            i++;
+        }
+
+        public  T getObjeto(int i)
+        {
+            return datosElemento[i];
+        }
+        private T [] datosElemento;
+
+        private int i = 0;
+
+    }
+
+    class Empleado
+    {
+        public Empleado(double sueldo)
+        {
+            this.sueldo = sueldo;
+        }
+
+        public double getSueldo()
+        {
+            return sueldo;
+        }
+
+        private double sueldo;
+    }
+    
+}
+
+*/
+
+
+using System;
+
+namespace GenericosRestricciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+    
+   
 }
