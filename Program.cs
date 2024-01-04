@@ -2003,6 +2003,10 @@ namespace Herencia
 
 
 
+//Ejericio Avisos de trafico_______________________________________________________
+
+/*
+
 using System;
 
 
@@ -2030,3 +2034,215 @@ namespace Aprendiendo_CSharp
 }
 
 
+*/
+
+
+
+
+
+
+
+
+using System;
+
+namespace Herencia
+{
+            class Program
+            {
+                    static void Main(string[] args)
+                    {
+                    
+                        Lagartija Juancho = new Lagartija("Juancho");
+                        Juancho.respirar();
+
+                        Humano Alejandro = new Humano("Alejandro");
+                        Alejandro.respirar();
+
+                        Alejandro.getNombre();
+
+
+   
+                    }
+            }   
+
+
+            // INTERFACES
+            // Solo se escribe, La interfaz No modifica nada. 
+            interface IMamiferosTerrestres
+            {
+                int numeroPatas();
+            }
+
+            interface IAnimalesYDeportes
+            {
+                String tipoDeporte();
+
+                Boolean esOlimpico();
+                
+            }
+
+            interface ISaltoConPatas
+            {
+                int numeroPatas();
+            }
+
+
+
+
+            // CREACION DE CLASES ABSTRACTAS
+
+            abstract class Animales
+            {
+                public void respirar()
+                {
+                    Console.WriteLine("Soy capaz de respirar");
+    
+                }
+
+                 public abstract void getNombre();
+            }
+
+            class Lagartija : Animales
+            {
+                public Lagartija(String nombreLagartija)
+                {
+                    nombreReptil = nombreLagartija;
+                }
+                public override void getNombre()
+                {
+                    Console.WriteLine("El nombre del reptil es: " + nombreReptil);
+                }
+
+                private String nombreReptil;
+            }
+
+            //AQUI INICIARAN LAS CLASES_______________________________
+
+
+            class Mamiferos:Animales
+            {
+                // Constructor
+
+                public Mamiferos(String nombre)
+                {
+                    nombreSerVivo = nombre;
+
+                    
+                }
+                
+                public void respirar()
+                {
+                    Console.WriteLine("Soy capaz de respirar");
+    
+                }
+
+                 public virtual void pensar()
+                {
+                    Console.WriteLine("Pensamiento básico instintivo");
+                }
+
+
+                public void cuidarCrias()
+                {
+                    Console.WriteLine("Cuido de mis crias hasta que se valgan por si solas");
+                }
+
+                public override void getNombre()
+                {
+                    Console.WriteLine("El nombre del mamifero ser vivo es: " + nombreSerVivo);
+                }
+
+              
+
+                private String nombreSerVivo;
+            }
+
+            class Ballena : Mamiferos
+            {
+                public Ballena(String nombreBallena) : base(nombreBallena)
+                {
+
+                }
+                public void nadar()
+                {
+                    Console.WriteLine("Soy capaz de nadar");
+                }
+
+             }
+
+            class Caballo : Mamiferos, IMamiferosTerrestres, IAnimalesYDeportes,ISaltoConPatas
+            {
+                public Caballo(String nombreCaballo) : base(nombreCaballo)
+                {
+
+                }
+                public void galopar()
+                {
+                    Console.WriteLine("Soy capaz de galopar");
+                }
+
+                int IMamiferosTerrestres.numeroPatas()
+                {
+                    return 4;
+                }
+
+                int ISaltoConPatas.numeroPatas()
+                {
+                    return 2;
+                }
+
+                public String tipoDeporte()
+                {
+                    return "Hipica";
+                }
+
+                public Boolean esOlimpico()
+                {
+                    return true;
+                }
+
+        internal string numeroPatas()
+        {
+            throw new NotImplementedException();
+        }
+    }
+         
+
+            class Humano : Mamiferos
+            {
+                public Humano(String nombreHumano) : base(nombreHumano)
+                {
+
+                }
+                public void pensar()
+                {
+                    Console.WriteLine("Soy capaz de pensar ¿?");
+                }   
+
+            }
+      
+
+            class Gorila : Mamiferos, IMamiferosTerrestres
+            {
+                public Gorila(String nombreGorila) : base(nombreGorila)
+                {
+
+                }
+
+                   public void pensar()
+                {
+                    Console.WriteLine("Pensamiento instintivo avanzado");
+                }
+                public void trepar()
+                {
+                    Console.WriteLine("Soy capaz de trepar");
+                }
+                public int numeroPatas()
+                {
+                    return 2;
+                }
+
+            }
+            
+    
+}
