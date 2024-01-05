@@ -2656,7 +2656,123 @@ namespace GenericosRestricciones
         static void Main(string[] args)
         {
 
+            AlmacenEmpleados<Secretaria> empleados = new AlmacenEmpleados<Secretaria>(3);
+
+            empleados.agregar(new Secretaria(1000));
+            empleados.agregar(new Secretaria(2000));
+            empleados.agregar(new Secretaria(3000));
+
+            AlmacenEmpleados<Director> empleados2 = new AlmacenEmpleados<Director>(3);
+
+            empleados2.agregar(new Director(1000));
+            empleados2.agregar(new Director(2000));
+            empleados2.agregar(new Director(3000));
+
+
+
+            // Esto da error porque no cumple con la restriccion de la interfaz IParaEmpleados
+            
+            // AlmacenEmpleados<Estudiante> estudiantes = new AlmacenEmpleados<Estudiante>(3);
+
+            // Empleado3.agregar(new Estudiante(1000));
+            // Empleado3.agregar(new Estudiante(2000));
+            // Empleado3.agregar(new Estudiante(3000));
+
+          
+
         }
+    }
+
+    class AlmacenEmpleados<T> where T: IParaEmpleados
+    {
+        public AlmacenEmpleados(int z)
+        {
+            datosEmpleados = new T[z];
+        }
+
+        public void agregar(T obj)
+        {
+            datosEmpleados[i] = obj;
+            i++;
+        }
+
+        public T getEmpleado(int i)
+        {
+            return datosEmpleados[i];
+        }
+        private int i = 0;
+        private T[] datosEmpleados;
+
+    }
+
+    class Director:IParaEmpleados
+    {
+        public Director(double salario)
+        {
+            this.salario = salario;
+        }
+
+        private double salario;
+
+        public double getSalario()
+        {
+            return salario;
+        }
+
+
+    }
+
+    class Secretaria: IParaEmpleados
+    {
+        public Secretaria(double salario)
+        {
+            this.salario = salario;
+        }
+
+        private double salario;
+
+         public double getSalario()
+        {
+            return salario;
+        }
+
+    }
+
+    class Electricista: IParaEmpleados
+    {
+
+         public Electricista(double salario)
+        {
+            this.salario = salario;
+        }
+
+        private double salario;
+
+         public double getSalario()
+        {
+            return salario;
+        }
+
+    }
+
+    class Estudiante
+    {
+        public Estudiante(double edad)
+        {
+            this.edad = edad;
+        }
+
+        public double getEdad()
+        {
+            return edad;
+        }
+        private double edad;
+
+    }
+
+    interface IParaEmpleados
+    {
+        double getSalario();
     }
     
    
