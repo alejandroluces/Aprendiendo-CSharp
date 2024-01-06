@@ -2906,6 +2906,7 @@ namespace UsoLinkedList
 */
 
 // ALGOTITMO----------------------------------------------
+/*
 using System;
 using System.Text.RegularExpressions;
 
@@ -2930,6 +2931,55 @@ namespace Solution
     }
 
 }
+*/
+
+// USO COLECCION Queue<T>_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace ColexionesFiFo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         
+         Queue<int> numeros = new Queue<int>(); 
+
+            foreach (var item in new int[] { 1, 2, 3, 4, 5 })
+                {
+                    numeros.Enqueue(item);
+                    
+                }
+
+                //recorriendo la cola
+                Console.WriteLine("Recorriendo Queue");
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine("El resultado es: "+item);
+                }
+                //eliminando elementos de la cola
+
+                Console.WriteLine("Eliminando elementos de la cola");
+
+                numeros.Dequeue();
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine("El resultado es: "+item);
+                }
+    
+                
+
+        }
+
+    }
+    
+}
+
+
 
 
 
