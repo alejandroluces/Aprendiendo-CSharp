@@ -2981,8 +2981,12 @@ namespace ColexionesFiFo
 */
 
 
-// USO COLECCION Stack<T>_______________________
 
+
+
+
+// USO COLECCION Stack<T>_______________________
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3027,6 +3031,49 @@ namespace ColexionesFiFo
     
 }
 
+*/
+
+
+
+
+// USO COLECCION Dictionary<T>_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace ColexionesFiFo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         
+            Dictionary<string, int> edades = new Dictionary<string, int>();
+            //Añadiendo elementos al diccionario
+
+            edades.Add("Alejandro", 37);
+            edades.Add("Juan", 36);
+            edades.Add("Maria", 35);
+            edades.Add("Jose", 34);
+            edades.Add("Ana", 33);
+
+            //Recorriendo el diccionario
+
+            foreach (var item in edades)
+            {
+                Console.WriteLine("El resultado es: "+item);
+            }
+
+            foreach (KeyValuePair<string, int> item in edades)
+            {
+                Console.WriteLine("Nombre: "+item.Key + " Edad: " + item.Value);
+            }
+
+        }
+
+    }
+    
+}
 
 
 
