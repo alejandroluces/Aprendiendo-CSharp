@@ -2647,6 +2647,11 @@ namespace Genericos
 */
 
 
+
+
+
+// uso de GENERICOS III_______________________ CON RESTRICCIONES
+/*
 using System;
 
 namespace GenericosRestricciones
@@ -2671,7 +2676,7 @@ namespace GenericosRestricciones
 
 
             // Esto da error porque no cumple con la restriccion de la interfaz IParaEmpleados
-            
+
             // AlmacenEmpleados<Estudiante> estudiantes = new AlmacenEmpleados<Estudiante>(3);
 
             // Empleado3.agregar(new Estudiante(1000));
@@ -2777,3 +2782,126 @@ namespace GenericosRestricciones
     
    
 }
+
+*/
+
+
+
+
+
+
+
+//COLECCTION_
+
+/*
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Colecciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+                List<int> numeros = new List<int>(); // Creacion de una lista de tipo int
+               
+               int[] listaNumeros = new int[]{1,22,13,44,5}; // Creacion de un array de tipo int
+                for (int i = 0; i < listaNumeros.Length; i++)//
+                {
+                    numeros.Add(listaNumeros[i]);// Añadimos los elementos del array a la lista. De listaNumeros a numeros
+                }
+
+               for (int i = 0; i < listaNumeros.Length; i++)
+               {
+                   Console.WriteLine(numeros[i]);
+               }
+        
+        }
+    }
+    
+}
+*/
+
+
+
+
+
+// USO DEL List<T>_______________________
+/*
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Colecciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+                List<int> numeros = new List<int>(); // Creacion de una lista de tipo int
+                Console.WriteLine("Introduce elemntos a la lista(0 para salir)");
+
+                int elemento = 1;
+
+                while (elemento != 0)
+                {
+                    
+                    elemento = Int32.Parse(Console.ReadLine());
+                    numeros.Add(elemento);
+                }
+               numeros.RemoveAt(numeros.Count-1);
+
+                Console.WriteLine("Los elementos de la lista son: ");
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine(item);
+                }
+
+        }
+   
+    }
+    
+}
+*/
+
+
+// USO DEL List<T>_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace UsoLinkedList
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LinkedList<int> numeros = new LinkedList<int>(); // Creacion de una lista de tipo int
+
+            foreach (var item in new int[] { 1, 2, 3, 4, 5 })
+            {
+                numeros.AddLast(item);
+                
+            }
+            numeros.Remove(3);
+            LinkedListNode<int> nodoAdd = new LinkedListNode<int>(500);
+            numeros.AddFirst(nodoAdd);
+
+            // foreach (var item in numeros)
+            // {
+            //     Console.WriteLine("El resultado es: "+item);
+            // }
+
+            for(LinkedListNode<int> nodo = numeros.First; nodo != null; nodo = nodo.Next)
+            {
+                int dato = nodo.Value;
+                Console.WriteLine("El resultado es nodo: "+dato);
+            }
+
+        }
+
+    }
+    
+}
+
+
