@@ -2934,7 +2934,7 @@ namespace Solution
 */
 
 // USO COLECCION Queue<T>_______________________
-
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -2978,7 +2978,54 @@ namespace ColexionesFiFo
     }
     
 }
+*/
 
+
+// USO COLECCION Stack<T>_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace ColexionesFiFo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         
+         Stack<int> numeros = new Stack<int>(); 
+
+            foreach (var item in new int[] { 1, 2, 3, 4, 5 })
+                {
+                    numeros.Push(item);
+                    
+                }
+
+                //recorriendo el stack
+                Console.WriteLine("Recorriendo el stack");
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine("El resultado es: "+item);
+                }
+                //eliminando elementos del stack
+
+                Console.WriteLine("Eliminando elementos del stack");
+
+                numeros.Pop();
+
+                foreach (var item in numeros)
+                {
+                    Console.WriteLine("El resultado es: "+item);
+                }
+    
+                
+
+        }
+
+    }
+    
+}
 
 
 
