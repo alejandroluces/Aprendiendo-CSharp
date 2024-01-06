@@ -2866,7 +2866,7 @@ namespace Colecciones
 
 
 // USO DEL List<T>_______________________
-
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -2903,5 +2903,35 @@ namespace UsoLinkedList
     }
     
 }
+*/
+
+// ALGOTITMO----------------------------------------------
+using System;
+using System.Text.RegularExpressions;
+
+namespace Solution
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = "hell5o wor6ld";
+            int number = GetNumberFromString(input);
+            Console.WriteLine(number);
+        }
+
+        static int GetNumberFromString(string s)
+        {
+            string digitsOnly = Regex.Replace(s, "[^0-9]", "");
+            int number = int.Parse(digitsOnly);
+            return number;
+        }
+    }
+
+}
+
+
+
 
 
