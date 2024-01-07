@@ -3037,7 +3037,7 @@ namespace ColexionesFiFo
 
 
 // USO COLECCION Dictionary<T>_______________________
-
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3071,6 +3071,56 @@ namespace ColexionesFiFo
 
         }
 
+    }
+    
+}
+*/
+
+
+// USO DEL DELEGADO_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Delegado
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Creacion del objeto delegado apuntando al metodo SaludoEntrada
+            objetoDelegado Eldelegado = new objetoDelegado(SaludoDeBievenida.SaludoEntrada);
+            // Invocacion del delegado
+            Eldelegado("Alejandro");
+
+
+
+            Eldelegado = SaludoDeDespedida.SaludoSaliendo;
+            Eldelegado("Alejandro");
+            
+        
+        }
+
+        
+        //Definiendo el delegado
+        delegate void objetoDelegado(string msj);
+
+    }
+
+    class SaludoDeBievenida
+    {
+        public static void SaludoEntrada(string nombre)
+        {
+            Console.WriteLine("Bienvenido " + nombre);
+        }
+    }
+
+    class SaludoDeDespedida
+    {
+        public static void SaludoSaliendo(string nombre)
+        {
+            Console.WriteLine("Adios " + nombre);
+        }
     }
     
 }
