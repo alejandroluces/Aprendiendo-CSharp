@@ -3174,8 +3174,12 @@ namespace Delegado_PRedicado
 }
 */
 
-// USO DEL PREDICADO_______________________
 
+
+
+
+// USO DEL PREDICADO_______________________
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3248,5 +3252,74 @@ namespace Delegado_Predicado
     } 
    
 }
+*/
+
+// Expresion lambda_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Delegado_Predicado
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+           
+            
+            // Personas P1 = new Personas();
+            // P1.Nombre = "Alejandro";
+            // P1.Edad = 7;
+
+            // Personas P2 = new Personas();
+            // P2.Nombre = "Juan";
+            // P2.Edad = 6;
+
+            // uso del delegado
+
+            OperacionesMatematicas operacion = new OperacionesMatematicas((num1,num2) => num1 + num2);
+            OperacionesMatematicas2 operacion2 = new OperacionesMatematicas2((num1) => num1 * num1);
+
+            // Lista de pares usando expresion lambda
+            List<int> listnumeros = new List<int>{1,2,3,4,5,6,7,8,9,10};
+            List<int> listnumerosPares = listnumeros.FindAll(item => item % 2 == 0);
 
 
+            listnumerosPares.ForEach(i => Console.WriteLine(i));
+            
+            // foreach (var item in listnumerosPares)
+            // {
+            //     Console.WriteLine(item);
+            // }
+
+           
+        }
+        public delegate int OperacionesMatematicas(int numero1, int numero2);
+        public delegate int OperacionesMatematicas2(int listnumeros);
+
+    //     public static int Cuadrado(int num)
+    //     {
+    //         return num * num;
+    //     }
+        public static int Sum(int num1, int num2)
+            {
+                return num1 * num2;
+            }
+    
+
+
+       class Personas
+        {
+            private string nombre;
+
+            private int edad;
+
+            public string Nombre{ get => nombre; set => nombre = value; }
+
+            public int Edad{ get => edad; set => edad = value; }
+
+
+        }
+    }
+}
