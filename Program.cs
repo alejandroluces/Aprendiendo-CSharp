@@ -3077,8 +3077,10 @@ namespace ColexionesFiFo
 */
 
 
-// USO DEL DELEGADO_______________________
 
+
+// USO DEL DELEGADO_______________________
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3101,7 +3103,7 @@ namespace Delegado
         
         }
 
-        
+
         //Definiendo el delegado
         delegate void objetoDelegado(string msj);
 
@@ -3124,8 +3126,51 @@ namespace Delegado
     }
     
 }
+*/
 
 
 
+
+// USO DEL PREDICADO_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Delegado_PRedicado
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> listnumeros = new List<int>();
+            listnumeros.AddRange(new int[] {1,2,3,4,5,6,7,8,9,10});
+
+            //Declarando el delegado predicado
+            Predicate<int> delegadoPred = new Predicate<int>(EsPar);
+            List<int> listnumerosPares = listnumeros.FindAll(delegadoPred);
+
+            foreach (var item in listnumerosPares)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+        static bool EsPar(int i) => i % 2 == 0 ? true : false;
+
+        // Esta sintaxis es equivalente a la anterior--> static bool EsPar(int i) => i % 2 == 0 ? true : false;
+        // static bool EsPar(int i)
+        // {
+        //     if (i % 2 == 0)
+        //     {
+        //         return true;
+        //     }
+        //     else
+        //     {
+        //         return false;
+        //     }
+        // }
+    }
+   
+}
 
 
