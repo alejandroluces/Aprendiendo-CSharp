@@ -3254,8 +3254,10 @@ namespace Delegado_Predicado
 }
 */
 
-// Expresion lambda_______________________
 
+
+// Expresion lambda_______________________
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3307,6 +3309,58 @@ namespace Delegado_Predicado
                 return num1 * num2;
             }
     
+
+
+       class Personas
+        {
+            private string nombre;
+
+            private int edad;
+
+            public string Nombre{ get => nombre; set => nombre = value; }
+
+            public int Edad{ get => edad; set => edad = value; }
+
+
+        }
+    }
+}
+*/
+
+
+// Expresion lambda_II______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Delegado_Predicado
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+           
+            
+            Personas P1 = new Personas();
+            P1.Nombre = "Alejandro";
+            P1.Edad = 7;
+
+            Personas P2 = new Personas();
+            P2.Nombre = "Juan";
+            P2.Edad = 6;
+
+            ComparePersonas compareEdad = (persona1, persona2) => persona1 > persona2;
+
+            Console.WriteLine(compareEdad(P1.Edad,P2.Edad));
+
+      
+
+           
+        }   
+
+        public delegate bool ComparePersonas(int edad1, int edad2);
+  
 
 
        class Personas
