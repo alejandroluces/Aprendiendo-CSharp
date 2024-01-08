@@ -3132,7 +3132,7 @@ namespace Delegado
 
 
 // USO DEL PREDICADO_______________________
-
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3170,6 +3170,82 @@ namespace Delegado_PRedicado
         //     }
         // }
     }
+   
+}
+*/
+
+// USO DEL PREDICADO_______________________
+
+using System;
+using System.Collections.Generic; // Para usar las colecciones
+
+namespace Delegado_Predicado
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Personas> gente = new List<Personas>();
+
+            Personas P1 = new Personas();
+            P1.Nombre = "Alejandro";
+            P1.Edad = 7;
+
+            Personas P2 = new Personas();
+            P2.Nombre = "Juan";
+            P2.Edad = 6;
+
+            Personas P3 = new Personas();
+            P3.Nombre = "Maria";
+            P3.Edad = 33;
+
+
+            gente.AddRange(new Personas[] {P1,P2,P3});
+
+            //Declarando el delegado predicado.
+
+            Predicate<Personas> delegadoPred = new Predicate<Personas>(ExisteJuan);
+
+            bool existe = gente.Exists(delegadoPred);
+
+            if (existe)
+            {
+                Console.WriteLine("Hay mayores de edad");
+            }
+            else
+            {
+                Console.WriteLine("No existe Mayores de edad");
+            }
+
+           
+
+        }
+
+        static bool ExisteJuan(Personas persona)
+        {
+            if (persona.Edad > 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    } 
+
+    class Personas
+    {
+        private string nombre;
+
+        private int edad;
+
+        public string Nombre{ get => nombre; set => nombre = value; }
+
+        public int Edad{ get => edad; set => edad = value; }
+
+
+    } 
    
 }
 
