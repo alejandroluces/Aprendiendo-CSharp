@@ -3329,7 +3329,7 @@ namespace Delegado_Predicado
 
 
 // Expresion lambda_II______________________
-
+/*
 using System;
 using System.Collections.Generic; // Para usar las colecciones
 
@@ -3375,5 +3375,43 @@ namespace Delegado_Predicado
 
 
         }
+    }
+}
+
+*/
+
+
+
+// Expresiones Regulares______________________
+
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions; // Para usar las colecciones
+
+namespace ExpresionesRegulares
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string frase = "Mi web es: http://alejandro.com y mi correo es:";
+
+            string patron = @"http?://(www.)?alejandro.com";
+
+            Regex miRegex = new Regex(patron);
+
+            MatchCollection miMatchCollection = miRegex.Matches(frase);
+
+            if (miMatchCollection.Count > 0)
+            {
+                Console.WriteLine("Se ha encontrado coincidencia(email)");
+            }
+            else
+            {
+                Console.WriteLine("No se ha encontrado coincidencia");
+            }
+
+        }   
+
     }
 }
